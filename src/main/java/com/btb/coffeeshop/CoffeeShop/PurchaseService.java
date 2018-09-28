@@ -14,7 +14,7 @@ import java.util.Map;
 public class PurchaseService {
 
 	private CustomerService customerService;
-	private StockService stockService;
+	private BrewingService stockService;
 
 	private Map<Customer, Basket> baskets = new HashMap<Customer, Basket>();
 
@@ -51,17 +51,17 @@ public class PurchaseService {
 		for (Iterator<Item> iterator = basket.getItems().iterator(); iterator.hasNext();) {
 			Item item = (Item) iterator.next();
 			// TODO what happens if the stock is empty?
-			stockService.removeItemFromStock(item);
+			stockService.brewItem(item);
 		}
 		// add the order to the customer
-		getCustomerService().addPurchaseToCustomer(customer.getCustomerId(), basket);
+		customerService.addPurchaseToCustomer(customer.getCustomerId(), basket);
 	}
 
-	public StockService getStockService() {
+	public BrewingService getStockService() {
 		return stockService;
 	}
 
-	public void setStockService(StockService stockService) {
+	public void setStockService(BrewingService stockService) {
 		this.stockService = stockService;
 	}
 

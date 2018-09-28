@@ -30,11 +30,11 @@ public class Basket {
 		return items;
 	}
 
-	public Long getTotalPrice() {
-		Long totalPrice = (long) 0;
+	public Integer getTotalPrice() {
+		Integer totalPrice = 0;
 		for (Iterator<Item> iterator = items.iterator(); iterator.hasNext();) {
 			Item item = (Item) iterator.next();
-			totalPrice += item.getPrice();
+			totalPrice += item.getPriceInPence();
 		}
 		return totalPrice;
 	}

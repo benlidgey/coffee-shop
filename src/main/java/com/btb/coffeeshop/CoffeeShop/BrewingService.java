@@ -13,7 +13,7 @@ import java.util.Map;
  * @author blidgey
  *
  */
-public class StockService {
+public class BrewingService {
 
 	private Map<Item, Integer> stock = new HashMap<Item, Integer>();
 
@@ -22,7 +22,7 @@ public class StockService {
 		return new ArrayList<Item>();
 	}
 
-	public void removeItemFromStock(Item item) {
+	public void brewItem(Item item) {
 		// get the number of items from the stock
 		Integer numberInStock = stock.get(item);
 		// reduce by one

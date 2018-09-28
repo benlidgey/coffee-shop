@@ -7,8 +7,6 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 
-import org.apache.commons.lang3.time.DateUtils;
-
 /**
  * @author blidgey
  *

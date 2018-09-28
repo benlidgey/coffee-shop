@@ -14,41 +14,73 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
+
+		<junit.version>4.12</junit.version>
+
+		<maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
+		<io.cucumber.version>3.0.2</io.cucumber.version>
+
 	</properties>
 
+
 	<dependencies>
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-api</artifactId>
-			<version>5.1.0</version>
-			<scope>test</scope>
-		</dependency>
+
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.8</version>
 		</dependency>
+		<!-- Cucumber dependencies -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>${io.cucumber.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>${io.cucumber.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.19.1</version>
-				<dependencies>
-					<dependency>
-						<groupId>org.junit.platform</groupId>
-						<artifactId>junit-platform-surefire-provider</artifactId>
-						<version>1.1.0</version>
-					</dependency>
-					<dependency>
-						<groupId>org.junit.jupiter</groupId>
-						<artifactId>junit-jupiter-engine</artifactId>
-						<version>5.1.0</version>
-					</dependency>
-				</dependencies>
+				<version>${maven.surefire.plugin.version}</version>
 			</plugin>
+
+			<plugin>
+				<groupId>report.donut</groupId>
+				<artifactId>donut-maven-plugin</artifactId>
+				<!--  <version>0.0.6</version> -->
+				<executions>
+					<execution>
+						<id>execution</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<sourceDirectory>${project.build.directory}/cucumber-reports</sourceDirectory>
+							<outputDirectory>${project.build.directory}/donut</outputDirectory>
+							<timestamp>${maven.build.timestamp}</timestamp>
+							<template>default</template>
+							<projectName>${project.name}</projectName>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
 </project>

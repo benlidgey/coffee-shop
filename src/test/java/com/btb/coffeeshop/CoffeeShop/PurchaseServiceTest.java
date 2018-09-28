@@ -1,21 +1,20 @@
 package com.btb.coffeeshop.CoffeeShop;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.Date;
 import java.util.Random;
 
 import org.apache.commons.lang3.time.DateUtils;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-class PurchaseServiceTest {
+public class PurchaseServiceTest {
 
 	
 	
 	@Test
-	void testGetBasketForNewCustomer() throws InvalidDateOfBirthException {
+	public void testGetBasketForNewCustomer() throws InvalidDateOfBirthException {
 		// create an empty purchase service
 		PurchaseService service = new PurchaseService();
 		
@@ -31,10 +30,10 @@ class PurchaseServiceTest {
 		assertTrue(basket.getItems().isEmpty());
 	}
 
-	@Test
-	void testMakePurchase() {
-		fail("Not yet implemented");
-	}
+//	@Test
+//	void testMakePurchase() {
+//		fail("Not yet implemented");
+//	}
 
 	private Date createDateOfBirth() {
 		Date dob = new Date();

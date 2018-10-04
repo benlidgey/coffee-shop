@@ -13,6 +13,11 @@ import java.util.Iterator;
  */
 public class Basket {
 
+	@Override
+	public String toString() {
+		return "Basket [items=" + items + "]";
+	}
+
 	private Collection<Item> items = new HashSet<Item>();
 
 	public Basket() {
@@ -33,7 +38,7 @@ public class Basket {
 	public Integer getTotalPrice() {
 		Integer totalPrice = 0;
 		for (Iterator<Item> iterator = items.iterator(); iterator.hasNext();) {
-			Item item = (Item) iterator.next();
+			Item item = iterator.next();
 			totalPrice += item.getPriceInPence();
 		}
 		return totalPrice;

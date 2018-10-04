@@ -9,6 +9,11 @@ package com.btb.coffeeshop.CoffeeShop;
  */
 public class Item {
 
+	@Override
+	public String toString() {
+		return "Item [id=" + id + ", name=" + name + ", priceInPence=" + priceInPence + "]";
+	}
+
 	private Long id;
 	private String name;
 	private Integer priceInPence;

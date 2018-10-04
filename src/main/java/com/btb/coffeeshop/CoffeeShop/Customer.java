@@ -13,17 +13,30 @@ import java.util.HashSet;
  */
 public class Customer {
 
+	@Override
+	public String toString() {
+		return "Customer [customerId=" + customerId + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", address="
+				+ address + ", orders=" + orders + ", balanceInPence=" + balanceInPence + "]";
+	}
+
 	private Long customerId;
 	private String name;
 	private Date dateOfBirth;
 	private String address;
 	private Collection<Basket> orders = new HashSet<Basket>();
+	private Integer balanceInPence = 0;
 
-	public Customer(Long id, String name, Date dob, String addr) throws InvalidDateOfBirthException {
+	public Customer(Long id, String name, Date dob, String addr, Integer balanceInPence)
+			throws InvalidDateOfBirthException {
 		setCustomerId(id);
 		setName(name);
 		setDateOfBirth(dob);
 		setAddress(addr);
+		setBalance(balanceInPence);
+	}
+
+	private void setBalance(Integer pence) {
+		this.balanceInPence = pence;
 	}
 
 	private void setAddress(String addr) {
@@ -34,7 +47,6 @@ public class Customer {
 //		this.dateOfBirth = dob;
 //
 //	}
-	
 
 	private void setDateOfBirth(Date dob) throws InvalidDateOfBirthException {
 		if (dob != null && dob.before(new Date())) {
@@ -72,6 +84,15 @@ public class Customer {
 
 	public void addOrder(Basket basket) {
 		orders.add(basket);
+	}
+
+	public Integer getBalance() {
+		return balanceInPence;
+	}
+
+	public void charge(Integer totalPrice) {
+		this.balanceInPence -= totalPrice;
+
 	}
 
 }

@@ -14,7 +14,7 @@ import java.util.Map;
 public class PurchaseService {
 
 	private CustomerService customerService;
-	private BrewingService stockService;
+	private BrewingService brewingService;
 
 	private Map<Customer, Basket> baskets = new HashMap<Customer, Basket>();
 
@@ -42,27 +42,36 @@ public class PurchaseService {
 		basket.addItem(item);
 	}
 
-	public void makePurchase(Customer customer) {
+	public void makePurchase(Customer customer) throws InsufficientFundsException {
 
 		// get the basket for the customer
 		Basket basket = getBasket(customer);
 
+		// charge the customer
+		try {
+			customerService.chargeCustomer(customer.getCustomerId(), basket.getTotalPrice());
+		} catch (InsufficientFundsException e) {
+			// TODO log purchase error
+			throw e;
+		}
+
 		// go through each item and remove from stock
 		for (Iterator<Item> iterator = basket.getItems().iterator(); iterator.hasNext();) {
-			Item item = (Item) iterator.next();
+			Item item = iterator.next();
 			// TODO what happens if the stock is empty?
-			stockService.brewItem(item);
+			brewingService.brewItem(item.getName());
 		}
 		// add the order to the customer
 		customerService.addPurchaseToCustomer(customer.getCustomerId(), basket);
+
 	}
 
-	public BrewingService getStockService() {
-		return stockService;
+	public BrewingService getBrewingService() {
+		return brewingService;
 	}
 
-	public void setStockService(BrewingService stockService) {
-		this.stockService = stockService;
+	public void setBrewingService(BrewingService brewingService) {
+		this.brewingService = brewingService;
 	}
 
 	public CustomerService getCustomerService() {

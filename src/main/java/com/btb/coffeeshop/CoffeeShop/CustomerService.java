@@ -24,4 +24,23 @@ public class CustomerService {
 		// add basket to order
 		customer.addOrder(basket);
 	}
+
+	public void chargeCustomer(Long id, Integer totalPrice) throws InsufficientFundsException {
+		// get customer
+		Customer customer = customers.get(id);
+
+		Integer balance = customer.getBalance();
+
+		// check the customer has enough in their account
+		if (balance <= totalPrice) {
+
+			// charge the customer the amount
+			customer.charge(totalPrice);
+		} else {
+			// the customer does not have enough in their account
+			// so reject the charge
+			throw new InsufficientFundsException(id, totalPrice, balance);
+		}
+
+	}
 }

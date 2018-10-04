@@ -26,7 +26,7 @@ public class CustomerTest {
 
 			// create a customer
 			// the creation should fail
-			Customer cust = new Customer(1L, "Mr Future", future, "An address");
+			Customer cust = new Customer(1L, "Mr Future", future, "An address", 10);
 			
 			// if get here then exception not thrown
 			fail("Exception not thrown for future date of birth: " + future.toString());
@@ -48,7 +48,7 @@ public class CustomerTest {
 
 			// create a customer
 			// the creation should fail
-			Customer cust = new Customer(1L, "Mr Past", past, "An address");
+			Customer cust = new Customer(1L, "Mr Past", past, "An address", 10);
 			assertNotNull(cust);
 		} catch (InvalidDateOfBirthException ex) {
 			// exception thrown so fail the test

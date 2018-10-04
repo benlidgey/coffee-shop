@@ -21,7 +21,7 @@ public class PurchaseServiceTest {
 		// create new customer
 		Long id = createRandomId();
 		Date dob = createDateOfBirth();
-		Customer newCustomer = new Customer(id, "New customer", dob , "Address");
+		Customer newCustomer = new Customer(id, "New customer", dob , "Address", 10);
 		Basket basket = service.getBasket(newCustomer);
 		
 		// check basket is not null

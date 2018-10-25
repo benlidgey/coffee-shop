@@ -1,11 +1,13 @@
 /**
  * 
  */
-package com.btb.coffeeshop.CoffeeShop;
+package com.btb.coffeeshop.customer;
 
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
+
+import com.btb.coffeeshop.basket.Basket;
 
 /**
  * @author blidgey

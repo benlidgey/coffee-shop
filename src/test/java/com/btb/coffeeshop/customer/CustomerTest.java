@@ -1,4 +1,4 @@
-package com.btb.coffeeshop.CoffeeShop;
+package com.btb.coffeeshop.customer;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -8,6 +8,9 @@ import java.util.Date;
 
 import org.apache.commons.lang3.time.DateUtils;
 import org.junit.Test;
+
+import com.btb.coffeeshop.customer.Customer;
+import com.btb.coffeeshop.customer.InvalidDateOfBirthException;
 
 
 public class CustomerTest {

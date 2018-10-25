@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.btb.coffeeshop.CoffeeShop;
+package com.btb.coffeeshop.brew;
 
 import java.util.ArrayList;
 import java.util.Collection;

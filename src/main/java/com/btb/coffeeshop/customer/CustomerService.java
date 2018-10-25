@@ -1,10 +1,13 @@
 /**
  * 
  */
-package com.btb.coffeeshop.CoffeeShop;
+package com.btb.coffeeshop.customer;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import com.btb.coffeeshop.basket.Basket;
+import com.btb.coffeeshop.purchase.InsufficientFundsException;
 
 /**
  * @author blidgey

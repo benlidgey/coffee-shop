@@ -1,10 +1,13 @@
-package com.btb.coffeeshop.CoffeeShop;
+package com.btb.coffeeshop.basket;
 
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+
+import com.btb.coffeeshop.basket.Basket;
+import com.btb.coffeeshop.customer.Item;
 
 public class BasketTest {
 

@@ -1,4 +1,4 @@
-package com.btb.coffeeshop.CoffeeShop;
+package com.btb.coffeeshop;
 
 import org.junit.runner.RunWith;
 

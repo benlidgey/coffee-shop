@@ -4,9 +4,15 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.btb.coffeeshop</groupId>
-	<artifactId>CoffeeShop</artifactId>
+	<artifactId>coffee-shop</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.5.RELEASE</version>
+	</parent>
 
 	<name>CoffeeShop</name>
 
@@ -48,7 +54,14 @@
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
 		</dependency>
+
+		<!-- Web -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
 	</dependencies>
+
 
 	<build>
 		<plugins>
@@ -62,7 +75,7 @@
 			<plugin>
 				<groupId>report.donut</groupId>
 				<artifactId>donut-maven-plugin</artifactId>
-				<!--  <version>0.0.6</version> -->
+				<!-- <version>0.0.6</version> -->
 				<executions>
 					<execution>
 						<id>execution</id>
@@ -79,6 +92,11 @@
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 
 		</plugins>

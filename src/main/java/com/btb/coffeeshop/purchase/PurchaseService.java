@@ -1,11 +1,17 @@
 /**
  * 
  */
-package com.btb.coffeeshop.CoffeeShop;
+package com.btb.coffeeshop.purchase;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+
+import com.btb.coffeeshop.basket.Basket;
+import com.btb.coffeeshop.brew.BrewingService;
+import com.btb.coffeeshop.customer.Customer;
+import com.btb.coffeeshop.customer.CustomerService;
+import com.btb.coffeeshop.customer.Item;
 
 /**
  * @author blidgey

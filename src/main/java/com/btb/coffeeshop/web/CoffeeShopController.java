@@ -1,16 +1,17 @@
 package com.btb.coffeeshop.web;
 
-
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RestController
+@Controller
 public class CoffeeShopController {
 
+	static final String COFFEESHOP_SUMMARY_VIEW = "index.html";
 
-    @RequestMapping("/")
-    public String index() {
-        return "Greetings from Spring Boot!";
-    }
+	@RequestMapping("/home")
+	public String getHome(Model model) {
+		return COFFEESHOP_SUMMARY_VIEW;
+	}
 
 }

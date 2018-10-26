@@ -3,11 +3,9 @@ package com.btb.coffeeshop.purchase;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import java.sql.Date;
 import java.util.Calendar;
 
 import org.apache.commons.lang3.RandomUtils;
-import org.apache.commons.lang3.time.DateUtils;
 
 import com.btb.coffeeshop.basket.Basket;
 import com.btb.coffeeshop.brew.BrewingService;
@@ -15,10 +13,7 @@ import com.btb.coffeeshop.customer.Customer;
 import com.btb.coffeeshop.customer.CustomerService;
 import com.btb.coffeeshop.customer.InvalidDateOfBirthException;
 import com.btb.coffeeshop.customer.Item;
-import com.btb.coffeeshop.purchase.InsufficientFundsException;
-import com.btb.coffeeshop.purchase.PurchaseService;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

@@ -21,11 +21,16 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
 
+		<!-- testing -->
 		<junit.version>4.12</junit.version>
-
 		<maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
 		<io.cucumber.version>3.0.2</io.cucumber.version>
 
+		<!-- web -->
+		<thymeleaf-layout-dialect.version>2.3.0</thymeleaf-layout-dialect.version>
+		<junit-jupiter-engine.version>5.2.0</junit-jupiter-engine.version>
+		<mockito-junit-jupiter.version>2.18.0</mockito-junit-jupiter.version>
+		<structured-logging.version>1.5.0-rc2</structured-logging.version>
 	</properties>
 
 
@@ -58,7 +63,38 @@
 		<!-- Web -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>nz.net.ultraq.thymeleaf</groupId>
+			<artifactId>thymeleaf-layout-dialect</artifactId>
+			<version>${thymeleaf-layout-dialect.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>${junit-jupiter-engine.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-junit-jupiter</artifactId>
+			<version>${mockito-junit-jupiter.version}</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 

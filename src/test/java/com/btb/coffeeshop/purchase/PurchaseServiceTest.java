@@ -1,7 +1,7 @@
 package com.btb.coffeeshop.purchase;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Date;
 import java.util.Random;
@@ -12,7 +12,6 @@ import org.junit.Test;
 import com.btb.coffeeshop.basket.Basket;
 import com.btb.coffeeshop.customer.Customer;
 import com.btb.coffeeshop.customer.InvalidDateOfBirthException;
-import com.btb.coffeeshop.purchase.PurchaseService;
 
 public class PurchaseServiceTest {
 

@@ -1,12 +1,11 @@
 package com.btb.coffeeshop.basket;
 
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import com.btb.coffeeshop.basket.Basket;
 import com.btb.coffeeshop.customer.Item;
 
 public class BasketTest {
@@ -18,13 +17,13 @@ public class BasketTest {
 		basket.addItem(new Item());
 		
 		// Test it is not empty
-		assertFalse("Basket is empty",basket.getItems().isEmpty());
+		assertFalse(basket.getItems().isEmpty(), "Basket is empty");
 		
 		// Empty it
 		basket.empty();
 		
 		// Test it is empty
-		assertTrue("Basket is not empty", basket.getItems().isEmpty());
+		assertTrue(basket.getItems().isEmpty(), "Basket is not empty");
 		
 	}
 

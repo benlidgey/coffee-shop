@@ -16,3 +16,7 @@ To run the container:
 `docker run -p 8888:8080 benlidgey/coffeeshop`
 
 Then goto [http://localhost:8888]
+
+# Continual Integration environments
+
+Currently trialling Travis-CI and CodeShip for CI builds online.

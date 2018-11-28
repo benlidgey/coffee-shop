@@ -14,7 +14,7 @@
 		<version>2.0.5.RELEASE</version>
 	</parent>
 
-	<name>CoffeeShop</name>
+	<name>coffeeshop</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -28,10 +28,13 @@
 		<junit-jupiter-engine.version>5.2.0</junit-jupiter-engine.version>
 		<maven.surefire.plugin.version>2.22.0</maven.surefire.plugin.version>
 		<mockito-junit-jupiter.version>2.18.0</mockito-junit-jupiter.version>
-		
 
 		<!-- web -->
 		<thymeleaf-layout-dialect.version>2.3.0</thymeleaf-layout-dialect.version>
+
+		<!-- Docker -->
+		<dockerfile-maven-version>1.4.9</dockerfile-maven-version>
+		<docker.image.prefix>benlidgey</docker.image.prefix>
 	</properties>
 
 
@@ -42,7 +45,7 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.8</version>
 		</dependency>
-		
+
 		<!--  Test -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
@@ -71,13 +74,13 @@
 		<dependency>
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-runner</artifactId>
-            <!-- 
+            <!--
             <version>${junit.platform.version}</version>
              -->
             <scope>test</scope>
             <version>1.3.1</version>
 		</dependency>
-		
+
 		<!-- Cucumber dependencies -->
 		<dependency>
 			<groupId>io.cucumber</groupId>
@@ -162,6 +165,29 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 
+			<!-- Build the Docker image -->
+			<plugin>
+			  <groupId>com.spotify</groupId>
+			  <artifactId>dockerfile-maven-plugin</artifactId>
+			  <version>${dockerfile-maven-version}</version>
+			  <executions>
+			    <execution>
+			      <id>default</id>
+			      <goals>
+			        <goal>build</goal>
+			        <goal>push</goal>
+			      </goals>
+			    </execution>
+			  </executions>
+			  <configuration>
+			    <repository>docker.io/${docker.image.prefix}/${project.artifactId}</repository>
+			    <tag>${project.version}</tag>
+					<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+			    <buildArgs>
+			      <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+			    </buildArgs>
+			  </configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>

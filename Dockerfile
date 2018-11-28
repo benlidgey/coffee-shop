@@ -1,7 +1,11 @@
 
-FROM openjdk:latest
+FROM openjdk:8-jre
+MAINTAINER Ben Lidgey <ben@brighterthanblue.com>
 
-COPY target/coffeeshop-0.0.1-SNAPSHOT.jar /usr/src/coffeeshop-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["/usr/bin/java", "-jar", "/usr/share/coffeeshop/coffeeshop.jar"]
 
-CMD java -jar /usr/src/coffeeshop-0.0.1-SNAPSHOT.jar
-
+# Add Maven dependencies (not shaded into the artifact; Docker-cached)
+# ADD target/lib           /usr/share/coffeeshop/lib
+# Add the service itself
+ARG JAR_FILE
+ADD target/${JAR_FILE} /usr/share/coffeeshop/coffeeshop.jar

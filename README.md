@@ -2,15 +2,14 @@
 Code to demonstrate unit testing, integration testing, BDD testing
 
 # Run the maven build
-'mvn clean install'
+`mvn clean install'
 
 # Build the container
 The build uses the Spotify dockerfile-maven plugin to build the Docker image as part of the build. Therefore to build the container:
-
-'mvn package'
+`mvn package'
 
 # Push the build to the Docker repository
-'mvn deploy'
+`mvn deploy'
 
 # Run container
 To run the container:

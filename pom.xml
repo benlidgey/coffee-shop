@@ -35,8 +35,27 @@
 		<!-- Docker -->
 		<dockerfile-maven-version>1.4.9</dockerfile-maven-version>
 		<docker.image.prefix>benlidgey</docker.image.prefix>
-	</properties>
 
+		<!-- Spring -->
+		<spring.version>5.0.6.RELEASE</spring.version>
+		<spring-data.version>2.0.9.RELEASE</spring-data.version>
+		
+   <thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
+   <thymeleaf-layout-dialect.version>2.3.0</thymeleaf-layout-dialect.version>
+   <java.version>1.8</java.version>        
+
+<!--  		
+		<org.thymeleaf-version>3.0.9.RELEASE</org.thymeleaf-version>
+		<org.thymeleaf.extras-version>3.0.1.RELEASE</org.thymeleaf.extras-version>
+		<thymeleaf-layout-dialect.version>2.3.0</thymeleaf-layout-dialect.version>
+		<javax.validation-version>2.0.1.Final</javax.validation-version>
+		<hibernate-validator.version>6.0.11.Final</hibernate-validator.version>
+-->
+
+		<!-- Maven plugins -->
+		<cargo-maven2-plugin.version>1.6.1</cargo-maven2-plugin.version>
+		<tomcat7-maven-plugin.version>2.2</tomcat7-maven-plugin.version>
+	</properties>
 
 	<dependencies>
 
@@ -46,7 +65,7 @@
 			<version>3.8</version>
 		</dependency>
 
-		<!--  Test -->
+		<!-- Test -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-api</artifactId>
@@ -72,13 +91,11 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-runner</artifactId>
-            <!--
-            <version>${junit.platform.version}</version>
-             -->
-            <scope>test</scope>
-            <version>1.3.1</version>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-runner</artifactId>
+			<!-- <version>${junit.platform.version}</version> -->
+			<scope>test</scope>
+			<version>1.3.1</version>
 		</dependency>
 
 		<!-- Cucumber dependencies -->
@@ -94,7 +111,6 @@
 			<version>${io.cucumber.version}</version>
 			<scope>test</scope>
 		</dependency>
-
 
 		<!-- Web -->
 		<dependency>
@@ -127,7 +143,6 @@
 			<version>5.3.1</version>
 		</dependency>
 	</dependencies>
-
 
 	<build>
 		<plugins>
@@ -166,28 +181,14 @@
 			</plugin>
 
 			<!-- Build the Docker image -->
-			<plugin>
-			  <groupId>com.spotify</groupId>
-			  <artifactId>dockerfile-maven-plugin</artifactId>
-			  <version>${dockerfile-maven-version}</version>
-			  <executions>
-			    <execution>
-			      <id>default</id>
-			      <goals>
-			        <goal>build</goal>
-			        <goal>push</goal>
-			      </goals>
-			    </execution>
-			  </executions>
-			  <configuration>
-			    <repository>docker.io/${docker.image.prefix}/${project.artifactId}</repository>
-			    <tag>${project.version}</tag>
-					<useMavenSettingsForAuth>true</useMavenSettingsForAuth>
-			    <buildArgs>
-			      <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
-			    </buildArgs>
-			  </configuration>
-			</plugin>
+			<!-- <plugin> <groupId>com.spotify</groupId> <artifactId>dockerfile-maven-plugin</artifactId> 
+				<version>${dockerfile-maven-version}</version> <executions> <execution> <id>default</id> 
+				<goals> <goal>build</goal> <goal>push</goal> </goals> </execution> </executions> 
+				<configuration> <repository>docker.io/${docker.image.prefix}/${project.artifactId}</repository> 
+				<tag>${project.version}</tag> <useMavenSettingsForAuth>true</useMavenSettingsForAuth> 
+				<buildArgs> <JAR_FILE>${project.build.finalName}.jar</JAR_FILE> </buildArgs> 
+				</configuration> </plugin> -->
+
 		</plugins>
 	</build>
 </project>

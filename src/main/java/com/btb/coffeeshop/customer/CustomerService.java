@@ -6,6 +6,8 @@ package com.btb.coffeeshop.customer;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Service;
+
 import com.btb.coffeeshop.basket.Basket;
 import com.btb.coffeeshop.purchase.InsufficientFundsException;
 
@@ -13,6 +15,7 @@ import com.btb.coffeeshop.purchase.InsufficientFundsException;
  * @author blidgey
  *
  */
+@Service
 public class CustomerService {
 
 	private Map<Long, Customer> customers = new HashMap<Long, Customer>();

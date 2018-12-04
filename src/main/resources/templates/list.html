@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="default">
+<head>
+<title>List page</title>
+<link rel="stylesheet" href="/css/basic.css" />
+</head>
+<body>
+	<!-- Container element -->
+	<div class="parallax"></div>
+
+	<div layout:fragment="content">
+
+
+		<div class="list-group">
+			<table>
+				<tr th:each="item : ${list}" class="list-group-item">
+					<td>Name: <span th:text="${item.name}">Name</span></td>
+					<td>Type: <span th:text="${item.name}">Type</span></td>
+					<td>Price: <span th:text="${item.name}">Price</span></td>
+				</tr>
+			</table>
+		</div>
+
+	</div>
+</body>
+<th:block layout:fragment="scripts">
+	<script src="/js/list.js"></script>
+</th:block>
+</html>

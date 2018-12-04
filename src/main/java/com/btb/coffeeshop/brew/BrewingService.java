@@ -8,17 +8,24 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.stereotype.Service;
+
 /**
  * @author blidgey
  *
  */
+@Service
 public class BrewingService {
 
 	private Map<String, Integer> stock = new HashMap<String, Integer>();
 
-	public Collection<String> searchByName(String search) {
+	public Collection<Coffee> searchByType(String search) {
 		// TODO search for the items in the stock based on name matching
-		return new ArrayList<String>();
+		final Collection<Coffee> coffees = new ArrayList<Coffee>();
+		coffees.add(new Coffee("Latte", CoffeeType.CAFFINATED, 180));
+		coffees.add(new Coffee("Decaf Latte", CoffeeType.DECAFF, 200));
+
+		return coffees;
 	}
 
 	public void brewItem(String itemName) {

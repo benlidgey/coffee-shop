@@ -1,0 +1,35 @@
+body, html {
+	height: 100%;
+}
+
+.parallax {
+	/* The image used */
+	background-image: url("/images/coffeeshop-background.jpg");
+	/* Full height */
+	height: 100%;
+	/* Create the parallax scrolling effect */
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+h1 {
+	background-color: white;
+	background-color: rgba(255, 255, 255, .85);
+}
+
+p {
+	background-color: white;
+	background-color: rgba(255, 255, 255, .85);
+}
+
+.main-text {
+	height: 1000px;
+	background-color: white;
+	font-size: 36px"
+}
+
+.list-group {
+	background-color: red;
+}

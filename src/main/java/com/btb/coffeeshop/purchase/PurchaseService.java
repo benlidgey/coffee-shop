@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import org.springframework.stereotype.Service;
+
 import com.btb.coffeeshop.basket.Basket;
 import com.btb.coffeeshop.brew.BrewingService;
 import com.btb.coffeeshop.customer.Customer;
@@ -17,6 +19,7 @@ import com.btb.coffeeshop.customer.Item;
  * @author blidgey
  *
  */
+@Service
 public class PurchaseService {
 
 	private CustomerService customerService;

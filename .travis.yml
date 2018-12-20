@@ -1,6 +1,0 @@
-language: java
-
-install: mvn initialize
-
-script: mvn install
-

@@ -7,41 +7,36 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.keyvalue.annotation.KeySpace;
+
 import com.btb.coffeeshop.basket.Basket;
 
-/**
- * @author blidgey
- *
- */
+@KeySpace("customers")
 public class Customer {
 
-	@Override
-	public String toString() {
-		return "Customer [customerId=" + customerId + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", address="
-				+ address + ", orders=" + orders + ", balanceInPence=" + balanceInPence + "]";
-	}
-
-	private Long customerId;
+	@Id
+	private Integer id;
 	private String name;
 	private Date dateOfBirth;
 	private String address;
 	private Collection<Basket> orders = new HashSet<Basket>();
 	private Integer balanceInPence = 0;
 
-	public Customer(Long id, String name, Date dob, String addr, Integer balanceInPence)
+	public Customer(Integer id, String name, Date dob, String addr, Integer balanceInPence)
 			throws InvalidDateOfBirthException {
-		setCustomerId(id);
-		setName(name);
+		this.id =id;
+		this.name = name;
 		setDateOfBirth(dob);
-		setAddress(addr);
-		setBalance(balanceInPence);
+		this.address = addr;
+		this.balanceInPence = balanceInPence;
 	}
 
-	private void setBalance(Integer pence) {
+	public void setBalance(Integer pence) {
 		this.balanceInPence = pence;
 	}
 
-	private void setAddress(String addr) {
+	public void setAddress(String addr) {
 		this.address = addr;
 	}
 
@@ -76,12 +71,12 @@ public class Customer {
 		return address;
 	}
 
-	public Long getCustomerId() {
-		return customerId;
+	public Integer getId() {
+		return id;
 	}
 
-	private void setCustomerId(Long id) {
-		this.customerId = id;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public void addOrder(Basket basket) {
@@ -95,6 +90,12 @@ public class Customer {
 	public void charge(Integer totalPrice) {
 		this.balanceInPence -= totalPrice;
 
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [customerId=" + id + ", name=" + name + ", dateOfBirth=" + dateOfBirth + ", address=" + address
+				+ ", orders=" + orders + ", balanceInPence=" + balanceInPence + "]";
 	}
 
 }

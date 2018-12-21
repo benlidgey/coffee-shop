@@ -46,10 +46,10 @@
 
 		<!-- <org.thymeleaf-version>3.0.9.RELEASE</org.thymeleaf-version> -->
 		<!-- <org.thymeleaf.extras-version>3.0.1.RELEASE</org.thymeleaf.extras-version> -->
-		<!-- <thymeleaf-layout-dialect.version>2.3.0</thymeleaf-layout-dialect.version> -->
-		
+		<!-- <thymeleaf-layout-dialect.version>2.3.0</thymeleaf-layout-dialect.version> -->		
 		<!-- <javax.validation-version>2.0.1.Final</javax.validation-version> -->
 		<!-- <hibernate-validator.version>6.0.11.Final</hibernate-validator.version> -->
+
 
 		<!-- Maven plugins -->
 		<cargo-maven2-plugin.version>1.6.1</cargo-maven2-plugin.version>
@@ -104,6 +104,12 @@
 			<version>${io.cucumber.version}</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-spring</artifactId>
+			<version>1.2.4</version>
+			<scope>test</scope>
+		</dependency>
 
 		<!-- Web -->
 		<dependency>
@@ -136,6 +142,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-keyvalue</artifactId>
 		</dependency>
 	</dependencies>
 

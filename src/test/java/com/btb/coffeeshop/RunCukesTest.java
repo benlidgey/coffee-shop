@@ -8,4 +8,5 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = { "pretty", "json:target/cucumber-reports/cucumber.json"}) 
 public class RunCukesTest {
+	
 }

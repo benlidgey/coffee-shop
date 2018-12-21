@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.btb.coffeeshop.basket.Basket;
@@ -14,15 +15,15 @@ import com.btb.coffeeshop.brew.BrewingService;
 import com.btb.coffeeshop.customer.Customer;
 import com.btb.coffeeshop.customer.CustomerService;
 import com.btb.coffeeshop.customer.Item;
+import com.btb.coffeeshop.customer.NoSuchCustomerException;
 
-/**
- * @author blidgey
- *
- */
-@Service
+@Service("PurchaseService")
 public class PurchaseService {
 
+	@Autowired
 	private CustomerService customerService;
+	
+	@Autowired
 	private BrewingService brewingService;
 
 	private Map<Customer, Basket> baskets = new HashMap<Customer, Basket>();
@@ -51,14 +52,14 @@ public class PurchaseService {
 		basket.addItem(item);
 	}
 
-	public void makePurchase(Customer customer) throws InsufficientFundsException {
+	public void makePurchase(Customer customer) throws InsufficientFundsException, NoSuchCustomerException {
 
 		// get the basket for the customer
 		Basket basket = getBasket(customer);
 
 		// charge the customer
 		try {
-			customerService.chargeCustomer(customer.getCustomerId(), basket.getTotalPrice());
+			customerService.chargeCustomer(customer.getId(), basket.getTotalPrice());
 		} catch (InsufficientFundsException e) {
 			// TODO log purchase error
 			throw e;
@@ -71,7 +72,7 @@ public class PurchaseService {
 			brewingService.brewItem(item.getName());
 		}
 		// add the order to the customer
-		customerService.addPurchaseToCustomer(customer.getCustomerId(), basket);
+		customerService.addPurchaseToCustomer(customer.getId(), basket);
 
 	}
 

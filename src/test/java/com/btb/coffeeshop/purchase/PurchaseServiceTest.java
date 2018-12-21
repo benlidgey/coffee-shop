@@ -23,7 +23,7 @@ public class PurchaseServiceTest {
 		PurchaseService service = new PurchaseService();
 		
 		// create new customer
-		Long id = createRandomId();
+		Integer id = createRandomId();
 		Date dob = createDateOfBirth();
 		Customer newCustomer = new Customer(id, "New customer", dob , "Address", 10);
 		Basket basket = service.getBasket(newCustomer);
@@ -45,8 +45,8 @@ public class PurchaseServiceTest {
 		return dob;
 	}
 
-	private Long createRandomId() {
+	private Integer createRandomId() {
 		Random r = new Random();
-		return r.nextLong();
+		return r.nextInt();
 	}
 }

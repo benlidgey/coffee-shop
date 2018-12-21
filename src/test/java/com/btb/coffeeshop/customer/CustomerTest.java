@@ -5,14 +5,16 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.Date;
+
+import org.apache.commons.lang3.RandomUtils;
 import org.apache.commons.lang3.time.DateUtils;
 import org.junit.jupiter.api.Test;
 
-import com.btb.coffeeshop.customer.Customer;
-import com.btb.coffeeshop.customer.InvalidDateOfBirthException;
-
+import com.btb.coffeeshop.DateOfBirthUtils;
 
 public class CustomerTest {
+
+	private static Integer testId = RandomUtils.nextInt();
 
 	/**
 	 * Test that creating a customer with a date of birth in the future will fail
@@ -28,8 +30,8 @@ public class CustomerTest {
 
 			// create a customer
 			// the creation should fail
-			Customer cust = new Customer(1L, "Mr Future", future, "An address", 10);
-			
+			new Customer(testId, "Mr Future", future, "An address", 10);
+
 			// if get here then exception not thrown
 			fail("Exception not thrown for future date of birth: " + future.toString());
 		} catch (InvalidDateOfBirthException ex) {
@@ -45,12 +47,11 @@ public class CustomerTest {
 
 		try {
 			// set a date in the past by 10 years
-			Date past = new Date();
-			past = DateUtils.addYears(past, -10);
+			Date past = DateOfBirthUtils.getDateInPast(10);
 
 			// create a customer
 			// the creation should fail
-			Customer cust = new Customer(1L, "Mr Past", past, "An address", 10);
+			Customer cust = new Customer(testId, "Mr Past", past, "An address", 10);
 			assertNotNull(cust);
 		} catch (InvalidDateOfBirthException ex) {
 			// exception thrown so fail the test

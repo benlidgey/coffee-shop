@@ -4,27 +4,32 @@ package com.btb.coffeeshop.purchase;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.Calendar;
-
 import org.apache.commons.lang3.RandomUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
+import com.btb.coffeeshop.DateOfBirthUtils;
 import com.btb.coffeeshop.basket.Basket;
 import com.btb.coffeeshop.brew.BrewingService;
 import com.btb.coffeeshop.customer.Customer;
 import com.btb.coffeeshop.customer.CustomerService;
+import com.btb.coffeeshop.customer.CustomerServiceMock;
 import com.btb.coffeeshop.customer.InvalidDateOfBirthException;
 import com.btb.coffeeshop.customer.Item;
+import com.btb.coffeeshop.customer.NoSuchCustomerException;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class PurchaseBasketSteps {
 
-	private CustomerService customerService = new CustomerService();
+public class PurchaseBasketSteps extends CucumberStepDefinitions {
+
+	private CustomerService customerService = new CustomerServiceMock();
 	private PurchaseService purchaseService = new PurchaseService();
 	private BrewingService brewingService = new BrewingService();
-	private Long customerId = RandomUtils.nextLong();
+	
+	private Integer customerId = RandomUtils.nextInt();
 	private Customer customer;
 	// private Basket basket;
 	private boolean insufficientFunds = false;
@@ -32,9 +37,7 @@ public class PurchaseBasketSteps {
 	public PurchaseBasketSteps() {
 
 		try {
-			Calendar c = Calendar.getInstance();
-			c.set(1970, 1, 1);
-			customer = new Customer(customerId, "name", c.getTime(), "1 high St", 0);
+			customer = new Customer(customerId, "name", DateOfBirthUtils.getDateInPast(15), "1 high St", 0);
 		} catch (InvalidDateOfBirthException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -69,13 +72,12 @@ public class PurchaseBasketSteps {
 	}
 
 	@When("the Purchase button is pressed")
-	public void the_Purchase_button_is_pressed() {
+	public void the_Purchase_button_is_pressed() throws NoSuchCustomerException {
 		try {
 			// make the purchase
 			Basket basket = purchaseService.getBasket(customer);
-			customerService.addPurchaseToCustomer(customer.getCustomerId(), basket);
+			customerService.addPurchaseToCustomer(customer.getId(), basket);
 			// call the purchase service
-
 			purchaseService.makePurchase(customer);
 		} catch (InsufficientFundsException e) {
 			// insufficient funds in customer account

@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 jobs:
-- job: basic-compile-test-build
+- job: build
   pool:
     vmImage: 'Ubuntu 16.04'
 
@@ -23,8 +23,8 @@ jobs:
       goals: 'package'
     
 
-- job: full-build-docker-upload
-  dependsOn: basic-compile-test-build
+- job: docker_upload
+  dependsOn: build
   condition: always()
   
   pool:

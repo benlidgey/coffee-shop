@@ -1,4 +1,4 @@
-package com.btb.coffeeshop.customer;
+package com.brighterthanblue.coffeeshop.customer;
 
 public class NoSuchCustomerException extends Exception {
 

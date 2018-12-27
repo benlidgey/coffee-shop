@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.btb.coffeeshop.customer;
+package com.brighterthanblue.coffeeshop.customer;
 
 /**
  * @author blidgey

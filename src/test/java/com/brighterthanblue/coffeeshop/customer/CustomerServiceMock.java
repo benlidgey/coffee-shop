@@ -1,6 +1,10 @@
-package com.btb.coffeeshop.customer;
+package com.brighterthanblue.coffeeshop.customer;
 
 import java.util.HashMap;
+
+import com.brighterthanblue.coffeeshop.customer.Customer;
+import com.brighterthanblue.coffeeshop.customer.CustomerServiceImpl;
+import com.brighterthanblue.coffeeshop.customer.NoSuchCustomerException;
 
 public class CustomerServiceMock extends CustomerServiceImpl {
 

@@ -1,4 +1,4 @@
-package com.btb.coffeeshop.customer;
+package com.brighterthanblue.coffeeshop.customer;
 
 import java.util.Optional;
 

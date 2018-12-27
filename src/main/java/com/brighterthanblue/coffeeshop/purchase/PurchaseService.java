@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.btb.coffeeshop.purchase;
+package com.brighterthanblue.coffeeshop.purchase;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -10,12 +10,12 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.btb.coffeeshop.basket.Basket;
-import com.btb.coffeeshop.brew.BrewingService;
-import com.btb.coffeeshop.customer.Customer;
-import com.btb.coffeeshop.customer.CustomerService;
-import com.btb.coffeeshop.customer.Item;
-import com.btb.coffeeshop.customer.NoSuchCustomerException;
+import com.brighterthanblue.coffeeshop.basket.Basket;
+import com.brighterthanblue.coffeeshop.brew.BrewingService;
+import com.brighterthanblue.coffeeshop.customer.Customer;
+import com.brighterthanblue.coffeeshop.customer.CustomerService;
+import com.brighterthanblue.coffeeshop.customer.Item;
+import com.brighterthanblue.coffeeshop.customer.NoSuchCustomerException;
 
 @Service("PurchaseService")
 public class PurchaseService {

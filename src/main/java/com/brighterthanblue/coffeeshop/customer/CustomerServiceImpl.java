@@ -1,10 +1,10 @@
 /**
  * 
  */
-package com.btb.coffeeshop.customer;
+package com.brighterthanblue.coffeeshop.customer;
 
-import com.btb.coffeeshop.basket.Basket;
-import com.btb.coffeeshop.purchase.InsufficientFundsException;
+import com.brighterthanblue.coffeeshop.basket.Basket;
+import com.brighterthanblue.coffeeshop.purchase.InsufficientFundsException;
 
 public abstract class CustomerServiceImpl implements CustomerService {
 

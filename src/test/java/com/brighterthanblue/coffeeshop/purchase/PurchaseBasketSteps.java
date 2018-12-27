@@ -1,4 +1,4 @@
-package com.btb.coffeeshop.purchase;
+package com.brighterthanblue.coffeeshop.purchase;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -8,15 +8,17 @@ import org.apache.commons.lang3.RandomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
-import com.btb.coffeeshop.DateOfBirthUtils;
-import com.btb.coffeeshop.basket.Basket;
-import com.btb.coffeeshop.brew.BrewingService;
-import com.btb.coffeeshop.customer.Customer;
-import com.btb.coffeeshop.customer.CustomerService;
-import com.btb.coffeeshop.customer.CustomerServiceMock;
-import com.btb.coffeeshop.customer.InvalidDateOfBirthException;
-import com.btb.coffeeshop.customer.Item;
-import com.btb.coffeeshop.customer.NoSuchCustomerException;
+import com.brighterthanblue.coffeeshop.DateOfBirthUtils;
+import com.brighterthanblue.coffeeshop.basket.Basket;
+import com.brighterthanblue.coffeeshop.brew.BrewingService;
+import com.brighterthanblue.coffeeshop.customer.Customer;
+import com.brighterthanblue.coffeeshop.customer.CustomerService;
+import com.brighterthanblue.coffeeshop.customer.CustomerServiceMock;
+import com.brighterthanblue.coffeeshop.customer.InvalidDateOfBirthException;
+import com.brighterthanblue.coffeeshop.customer.Item;
+import com.brighterthanblue.coffeeshop.customer.NoSuchCustomerException;
+import com.brighterthanblue.coffeeshop.purchase.InsufficientFundsException;
+import com.brighterthanblue.coffeeshop.purchase.PurchaseService;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;

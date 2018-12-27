@@ -1,4 +1,4 @@
-package com.btb.coffeeshop.purchase;
+package com.brighterthanblue.coffeeshop.purchase;
 
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;

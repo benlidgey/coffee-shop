@@ -1,4 +1,4 @@
-package com.btb.coffeeshop.purchase;
+package com.brighterthanblue.coffeeshop.purchase;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -9,9 +9,10 @@ import java.util.Random;
 import org.apache.commons.lang3.time.DateUtils;
 import org.junit.Test;
 
-import com.btb.coffeeshop.basket.Basket;
-import com.btb.coffeeshop.customer.Customer;
-import com.btb.coffeeshop.customer.InvalidDateOfBirthException;
+import com.brighterthanblue.coffeeshop.basket.Basket;
+import com.brighterthanblue.coffeeshop.customer.Customer;
+import com.brighterthanblue.coffeeshop.customer.InvalidDateOfBirthException;
+import com.brighterthanblue.coffeeshop.purchase.PurchaseService;
 
 public class PurchaseServiceTest {
 

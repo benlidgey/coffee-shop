@@ -1,4 +1,4 @@
-package com.btb.coffeeshop.purchase;
+package com.brighterthanblue.coffeeshop.purchase;
 
 public class InsufficientFundsException extends Exception {
 

@@ -1,4 +1,4 @@
-package com.btb.coffeeshop;
+package com.brighterthanblue.coffeeshop;
 
 import java.util.Date;
 

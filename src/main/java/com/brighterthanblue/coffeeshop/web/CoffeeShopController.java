@@ -1,4 +1,4 @@
-package com.btb.coffeeshop.web;
+package com.brighterthanblue.coffeeshop.web;
 
 import java.util.Collection;
 
@@ -8,8 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.btb.coffeeshop.brew.BrewingService;
-import com.btb.coffeeshop.brew.Coffee;
+import com.brighterthanblue.coffeeshop.brew.BrewingService;
+import com.brighterthanblue.coffeeshop.brew.Coffee;
 
 @Controller
 public class CoffeeShopController {

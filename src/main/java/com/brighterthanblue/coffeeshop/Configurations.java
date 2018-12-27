@@ -1,4 +1,4 @@
-package com.btb.coffeeshop;
+package com.brighterthanblue.coffeeshop;
 
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -13,7 +13,7 @@ import org.springframework.data.map.repository.config.EnableMapRepositories;
 
 @Configuration
 @EnableMapRepositories
-@ComponentScan(basePackages = { "com.btb.coffeeshop" })
+@ComponentScan(basePackages = { "com.brighterthanblue.coffeeshop" })
 public class Configurations {
 	
     @Bean("keyValueTemplate")

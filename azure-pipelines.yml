@@ -3,21 +3,44 @@
 # Add steps that use Docker Compose, tag images, push to a registry, run an image, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
-pool:
-  vmImage: 'Ubuntu 16.04'
+jobs:
+- job: basic-compile-test-build
+  pool:
+    vmImage: 'Ubuntu 16.04'
 
-variables:
-  imageName: 'your-container-image-name:$(build.buildId)'
-steps:
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    options: '-P docker-build'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.11'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: false
-    testResultsFiles: '**/TEST-*.xml'
-    goals: 'package'
+  variables:
+    imageName: 'your-container-image-name:$(build.buildId)'
+  steps:
+  - task: Maven@3
+    inputs:
+      mavenPomFile: 'pom.xml'
+      mavenOptions: '-Xmx3072m'
+      javaHomeOption: 'JDKVersion'
+      jdkVersionOption: '1.11'
+      jdkArchitectureOption: 'x64'
+      publishJUnitResults: false
+      testResultsFiles: '**/TEST-*.xml'
+      goals: 'package'
     
+
+- job: full-build-docker-upload
+  dependsOn: basic-compile-test-build
+  condition: always()
+  
+  pool:
+    vmImage: 'Ubuntu 16.04'
+
+  variables:
+    imageName: 'your-container-image-name:$(build.buildId)'
+  steps:
+  - task: Maven@3
+    inputs:
+      mavenPomFile: 'pom.xml'
+      mavenOptions: '-Xmx3072m'
+      javaHomeOption: 'JDKVersion'
+      jdkVersionOption: '1.11'
+      jdkArchitectureOption: 'x64'
+      publishJUnitResults: false
+      testResultsFiles: '**/TEST-*.xml'
+      goals: 'package'
+      options: '-P docker-build'

@@ -1,13 +1,13 @@
 /**
  * 
  */
-package com.btb.coffeeshop.basket;
+package com.brighterthanblue.coffeeshop.basket;
 
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 
-import com.btb.coffeeshop.customer.Item;
+import com.brighterthanblue.coffeeshop.customer.Item;
 
 /**
  * @author blidgey

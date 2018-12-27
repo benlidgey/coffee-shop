@@ -1,4 +1,4 @@
-package com.btb.coffeeshop.customer;
+package com.brighterthanblue.coffeeshop.customer;
 
 import static org.junit.Assert.assertEquals;
 
@@ -13,8 +13,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.keyvalue.core.KeyValueTemplate;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.btb.coffeeshop.CoffeeShopWebApplication;
-import com.btb.coffeeshop.DateOfBirthUtils;
+import com.brighterthanblue.coffeeshop.CoffeeShopWebApplication;
+import com.brighterthanblue.coffeeshop.DateOfBirthUtils;
+import com.brighterthanblue.coffeeshop.customer.Customer;
+import com.brighterthanblue.coffeeshop.customer.CustomerService;
+import com.brighterthanblue.coffeeshop.customer.InvalidDateOfBirthException;
+import com.brighterthanblue.coffeeshop.customer.NoSuchCustomerException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = CoffeeShopWebApplication.class)

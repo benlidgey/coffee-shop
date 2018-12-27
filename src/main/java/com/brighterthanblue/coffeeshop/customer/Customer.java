@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.btb.coffeeshop.customer;
+package com.brighterthanblue.coffeeshop.customer;
 
 import java.util.Collection;
 import java.util.Date;
@@ -10,7 +10,7 @@ import java.util.HashSet;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.keyvalue.annotation.KeySpace;
 
-import com.btb.coffeeshop.basket.Basket;
+import com.brighterthanblue.coffeeshop.basket.Basket;
 
 @KeySpace("customers")
 public class Customer {

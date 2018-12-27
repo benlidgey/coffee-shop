@@ -1,4 +1,4 @@
-package com.btb.coffeeshop.web;
+package com.brighterthanblue.coffeeshop.web;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -12,6 +12,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+import com.brighterthanblue.coffeeshop.web.CoffeeShopController;
 
 @ExtendWith(MockitoExtension.class)
 public class CoffeeShopControllerTests {

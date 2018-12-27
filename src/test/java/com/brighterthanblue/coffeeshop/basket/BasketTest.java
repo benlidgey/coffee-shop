@@ -1,4 +1,4 @@
-package com.btb.coffeeshop.basket;
+package com.brighterthanblue.coffeeshop.basket;
 
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -6,7 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import com.btb.coffeeshop.customer.Item;
+import com.brighterthanblue.coffeeshop.basket.Basket;
+import com.brighterthanblue.coffeeshop.customer.Item;
 
 public class BasketTest {
 

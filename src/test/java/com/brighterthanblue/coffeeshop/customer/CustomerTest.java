@@ -1,4 +1,4 @@
-package com.btb.coffeeshop.customer;
+package com.brighterthanblue.coffeeshop.customer;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -10,7 +10,9 @@ import org.apache.commons.lang3.RandomUtils;
 import org.apache.commons.lang3.time.DateUtils;
 import org.junit.jupiter.api.Test;
 
-import com.btb.coffeeshop.DateOfBirthUtils;
+import com.brighterthanblue.coffeeshop.DateOfBirthUtils;
+import com.brighterthanblue.coffeeshop.customer.Customer;
+import com.brighterthanblue.coffeeshop.customer.InvalidDateOfBirthException;
 
 public class CustomerTest {
 

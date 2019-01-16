@@ -21,7 +21,21 @@ jobs:
       publishJUnitResults: false
       testResultsFiles: '**/TEST-*.xml'
       goals: 'package'
-    
+
+- job: publish_test_results
+  steps:
+  # Publish Test Results
+  # Publish Test Results to Azure Pipelines/TFS
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFormat: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit
+      testResultsFiles: '**/TEST-*.xml' 
+      #searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
+      #mergeTestResults: false # Optional
+      #testRunTitle: # Optional
+      #buildPlatform: # Optional
+      #buildConfiguration: # Optional
+      #publishRunAttachments: true # Optional    
 
 - job: docker_upload
   dependsOn: build
@@ -44,16 +58,3 @@ jobs:
       testResultsFiles: '**/TEST-*.xml'
       goals: 'package'
       options: '-P docker-build'
-
-# Publish Test Results
-# Publish Test Results to Azure Pipelines/TFS
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'JUnit' # Options: JUnit, NUnit, VSTest, xUnit
-    testResultsFiles: '**/TEST-*.xml' 
-    #searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
-    #mergeTestResults: false # Optional
-    #testRunTitle: # Optional
-    #buildPlatform: # Optional
-    #buildConfiguration: # Optional
-    #publishRunAttachments: true # Optional

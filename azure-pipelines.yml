@@ -18,7 +18,7 @@ jobs:
       javaHomeOption: 'JDKVersion'
       jdkVersionOption: '1.11'
       jdkArchitectureOption: 'x64'
-      publishJUnitResults: false
+      publishJUnitResults: true
       testResultsFiles: '**/TEST-*.xml'
       goals: 'clean test package'
   # Publish Test Results

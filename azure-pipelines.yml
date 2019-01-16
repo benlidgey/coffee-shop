@@ -20,7 +20,7 @@ jobs:
       jdkArchitectureOption: 'x64'
       publishJUnitResults: false
       testResultsFiles: '**/TEST-*.xml'
-      goals: 'package'
+      goals: 'clean test package'
 
 - job: publish_test_results
   dependsOn: build

@@ -23,6 +23,9 @@ jobs:
       goals: 'package'
 
 - job: publish_test_results
+  dependsOn: build
+  condition: succeeded('publish_test_results')
+  
   steps:
   # Publish Test Results
   # Publish Test Results to Azure Pipelines/TFS
@@ -38,8 +41,8 @@ jobs:
       #publishRunAttachments: true # Optional    
 
 - job: docker_upload
-  dependsOn: build
-  condition: always()
+  dependsOn: publish_test_results
+  condition: succeeded('publish_test_results')
   
   pool:
     vmImage: 'Ubuntu 16.04'

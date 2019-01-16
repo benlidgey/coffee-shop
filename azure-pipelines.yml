@@ -24,7 +24,7 @@ jobs:
 
 - job: publish_test_results
   dependsOn: build
-  condition: succeeded('publish_test_results')
+  condition: succeeded('build')
   
   steps:
   # Publish Test Results

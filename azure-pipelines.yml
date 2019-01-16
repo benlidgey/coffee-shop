@@ -21,12 +21,6 @@ jobs:
       publishJUnitResults: false
       testResultsFiles: '**/TEST-*.xml'
       goals: 'clean test package'
-
-- job: publish_test_results
-  dependsOn: build
-  condition: succeeded('build')
-  
-  steps:
   # Publish Test Results
   # Publish Test Results to Azure Pipelines/TFS
   - task: PublishTestResults@2
@@ -42,7 +36,7 @@ jobs:
 
 - job: docker_upload
   dependsOn: publish_test_results
-  condition: succeeded('publish_test_results')
+  condition: succeeded('build')
   
   pool:
     vmImage: 'Ubuntu 16.04'

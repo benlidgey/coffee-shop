@@ -35,7 +35,7 @@ jobs:
       #publishRunAttachments: true # Optional    
 
 - job: docker_upload
-  dependsOn: publish_test_results
+  dependsOn: build
   condition: succeeded('build')
   
   pool:

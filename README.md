@@ -19,3 +19,5 @@ To run the container:
 Then goto [http://localhost:8888]
 
 # Continual Integration environments
+
+CircleCI

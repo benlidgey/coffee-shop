@@ -1,28 +1,64 @@
 version: 2
 jobs:
-  build:
-    
+  Build-Prepare:
     working_directory: ~/coffee-shop
-
     docker:
       - image: circleci/openjdk:8-jdk-browsers
 
     steps:
-
       - checkout
-
       - restore_cache:
           key: coffee-shop-{{ checksum "pom.xml" }}
-      
-      - run: mvn dependency:go-offline
-      
+      - run: mvn dependency:go-offline    
       - save_cache:
           paths:
             - ~/.m2
           key: coffee-shop-{{ checksum "pom.xml" }}
+
+  Build-Compile:
+    docker:
+      - image: circleci/openjdk:8-jdk-browsers
+    steps:
+      - run: mvn compile
       
-      - run: mvn package
-      
+  Build-Test:
+    docker:
+      - image: circleci/openjdk:8-jdk-browsers
+    steps:
+      - run: mvn compile
       - store_test_results:
-          path: target/surefire-reports
-      
+        path: target/surefire-reports
+
+  documentation:
+    docker:
+      - image: circleci/openjdk:8-jdk-browsers
+    steps:
+      - run: mvn site
+
+workflows:
+  version: 2
+  Approved-Build:
+    jobs:
+      - Build-Prepare:
+      - Build-Compile:
+        requires:
+          - Build-Prepare
+      - Build-Test:
+        requires:
+          - Build-Compile
+      - Hold-For-Approval:
+        type: approval
+        requires:
+          - Build-Test
+          - Build-Prepare
+      - Now-Complete:
+        requires:
+          - Hold-For-Approval
+
+  Quick-Build:
+    jobs:
+      - Build-Prepare:
+      - Build-Compile:
+        requires:
+          - Build-Prepare
+

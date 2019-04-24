@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  Build-Prepare:
+  Build-Compile:
     working_directory: ~/coffee-shop
     docker:
       - image: circleci/openjdk:8-jdk-browsers
@@ -14,17 +14,17 @@ jobs:
           paths:
             - ~/.m2
           key: coffee-shop-{{ checksum "pom.xml" }}
-
-  Build-Compile:
-    docker:
-      - image: circleci/openjdk:8-jdk-browsers
-    steps:
       - run: mvn compile
+      - persist_to_workspace:
+          root: . # Persist current working directory
+          paths: ./* # Glob. Will persist everything in folder
       
   Build-Test:
     docker:
       - image: circleci/openjdk:8-jdk-browsers
     steps:
+      - attach_workspace:
+          at: .
       - run: mvn compile
       - store_test_results:
           path: target/surefire-reports

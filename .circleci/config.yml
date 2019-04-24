@@ -40,10 +40,13 @@ workflows:
   Approved-Build:
     jobs:
       - Build-Compile
-      - Build-Test:
+      - Hold-For-Approval:
           type: approval
           requires:
             - Build-Compile
+      - Build-Test:
+          requires:
+            - Hold-For-Approval
 
   Quick-Build:
     jobs:

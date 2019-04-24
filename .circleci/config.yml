@@ -41,15 +41,9 @@ workflows:
     jobs:
       - Build-Compile
       - Build-Test:
-          requires:
-            - Build-Compile
-      - Hold-For-Approval:
           type: approval
           requires:
-            - Build-Test
-      - Now-Complete:
-          requires:
-            - Hold-For-Approval
+            - Build-Compile
 
   Quick-Build:
     jobs:

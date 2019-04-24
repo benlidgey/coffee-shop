@@ -27,7 +27,7 @@ jobs:
     steps:
       - run: mvn compile
       - store_test_results:
-        path: target/surefire-reports
+          path: target/surefire-reports
 
   documentation:
     docker:
@@ -39,26 +39,26 @@ workflows:
   version: 2
   Approved-Build:
     jobs:
-      - Build-Prepare:
+      - Build-Prepare
       - Build-Compile:
-        requires:
-          - Build-Prepare
+          requires:
+            - Build-Prepare
       - Build-Test:
-        requires:
-          - Build-Compile
+          requires:
+            - Build-Compile
       - Hold-For-Approval:
-        type: approval
-        requires:
-          - Build-Test
-          - Build-Prepare
+          type: approval
+          requires:
+            - Build-Test
+            - Build-Prepare
       - Now-Complete:
-        requires:
-          - Hold-For-Approval
+          requires:
+            - Hold-For-Approval
 
   Quick-Build:
     jobs:
-      - Build-Prepare:
+      - Build-Prepare
       - Build-Compile:
-        requires:
-          - Build-Prepare
+          requires:
+            - Build-Prepare
 

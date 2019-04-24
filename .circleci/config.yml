@@ -25,14 +25,16 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-      - run: mvn compile
+      - run: mvn test
       - store_test_results:
           path: target/surefire-reports
 
-  documentation:
+  Build-Documentation:
     docker:
       - image: circleci/openjdk:8-jdk-browsers
     steps:
+      - attach_workspace:
+          at: .
       - run: mvn site
 
 workflows:
@@ -51,4 +53,11 @@ workflows:
   Quick-Build:
     jobs:
       - Build-Compile
+
+  Documentation-Build:
+    jobs:
+      - Build-Compile
+      - Build-Documentation:
+          requires:
+            - Build-Compile
 

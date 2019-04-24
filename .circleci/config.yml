@@ -39,10 +39,7 @@ workflows:
   version: 2
   Approved-Build:
     jobs:
-      - Build-Prepare
-      - Build-Compile:
-          requires:
-            - Build-Prepare
+      - Build-Compile
       - Build-Test:
           requires:
             - Build-Compile
@@ -50,15 +47,11 @@ workflows:
           type: approval
           requires:
             - Build-Test
-            - Build-Prepare
       - Now-Complete:
           requires:
             - Hold-For-Approval
 
   Quick-Build:
     jobs:
-      - Build-Prepare
-      - Build-Compile:
-          requires:
-            - Build-Prepare
+      - Build-Compile
 

@@ -20,17 +20,14 @@ public class Basket {
 		return "Basket [items=" + items + "]";
 	}
 
-	private Collection<Item> items = new HashSet<Item>();
-
-	public Basket() {
-	}
+	private Collection<Item> items = new HashSet<>();
 
 	public void addItem(Item i) {
 		items.add(i);
 	}
 
 	public void empty() {
-		items = new HashSet<Item>();
+		items = new HashSet<>();
 	}
 
 	public Collection<Item> getItems() {

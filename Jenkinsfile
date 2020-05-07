@@ -30,5 +30,11 @@ pipeline {
                 sh 'mvn -Dsonar.login=$SONAR_LOGIN -Dsonar.host.url=$SONAR_HOST_URL sonar:sonar'
             }
         }
+        stage('Sonar using docker') { 
+            steps {
+                sh "docker run -it --rm --name $JOB_NAME -v $WORKSPACE:/usr/src/mymaven -w /usr/src/mymaven maven:3.3-jdk-8 mvn -Dsonar.login=$SONAR_LOGIN -Dsonar.host.url=$SONAR_HOST_URL sonar:sonar"
+
+            }
+        }
     }
 }

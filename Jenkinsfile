@@ -1,7 +1,7 @@
 pipeline {
     environment {
-        sonarLogin = credentials('sonar')
-        sonarHostUrl = "http://192.168.1.145:9000"
+        SONAR_LOGIN = credentials('sonar')
+        SONAR_HOST_URL = "http://192.168.1.145:9000"
     }
     agent {
         docker {
@@ -27,7 +27,7 @@ pipeline {
         }
         stage('Sonar') { 
             steps {
-                sh 'mvn -Dsonar.login=$sonarLogin_PWD -Dsonar.host.url=$sonarHostUrl'
+                sh 'mvn -Dsonar.login=$SONAR_LOGIN -Dsonar.host.url=$SONAR_HOST_URL'
             }
         }
     }

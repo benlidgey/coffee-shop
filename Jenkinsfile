@@ -21,5 +21,10 @@ pipeline {
                 }
             }
         }
+        stage('Sonar') { 
+            steps {
+                sh 'mvn -Dsonar.login=0117d4586911a2f1dadb450b2677f86b1b993a53 -Dsonar.host.url=http://192.168.1.145:9000 sonar:sonar' 
+            }
+        }
     }
 }

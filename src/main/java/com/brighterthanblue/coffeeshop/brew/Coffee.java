@@ -16,6 +16,7 @@ public class Coffee {
 	public Coffee(String n, CoffeeType t, int price) {
 		name = n;
 		type = t;
+		this.price = price;
 	}
 
 	public String getName() {

@@ -55,10 +55,6 @@ public class Customer {
 		}
 	}
 
-	private void setName(String customerName) {
-		this.name = customerName;
-	}
-
 	public String getName() {
 		return this.name;
 	}

@@ -27,7 +27,7 @@ pipeline {
         }
         stage('Sonar') { 
             steps {
-                sh 'mvn -Dsonar.login=$sonarLogin_PWD -Dsonar.host.url=$sonarHostUrl
+                sh 'mvn -Dsonar.login=$sonarLogin_PWD -Dsonar.host.url=$sonarHostUrl'
             }
         }
     }

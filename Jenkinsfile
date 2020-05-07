@@ -30,17 +30,19 @@ pipeline {
                 sh 'mvn -Dsonar.login=$SONAR_LOGIN -Dsonar.host.url=$SONAR_HOST_URL sonar:sonar'
             }
         }
-#        stage('Sonar using docker') { 
-#            agent {
-#                docker {
-#                    image 'maven:3-alpine'
-#                    args '-v /root/.m2:/root/.m2 --name $JOB_NAME -v $WORKSPACE:/usr/src/mymaven -w /usr/src/mymaven maven:3.3-jdk-8'
-#                }
-#            }
-#            steps {
-#                sh "mvn -Dsonar.login=$SONAR_LOGIN -Dsonar.host.url=$SONAR_HOST_URL sonar:sonar"
-#
-#            }
-#        }
+/*
+        stage('Sonar using docker') { 
+            agent {
+                docker {
+                    image 'maven:3-alpine'
+                    args '-v /root/.m2:/root/.m2 --name $JOB_NAME -v $WORKSPACE:/usr/src/mymaven -w /usr/src/mymaven maven:3.3-jdk-8'
+                }
+            }
+            steps {
+                sh "mvn -Dsonar.login=$SONAR_LOGIN -Dsonar.host.url=$SONAR_HOST_URL sonar:sonar"
+
+            }
+        }
+*/
     }
 }
